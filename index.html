@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Diana C. Galvez, DNP, MSN, RN | Nursing Education Leader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0D1B2A;
+            --navy-mid: #1B263B;
+            --navy-light: #2D3E50;
+            --gold: #D4AF37;
+            --gold-soft: #E8D5A3;
+            --gold-dark: #B8960C;
+            --cream: #FAF9F6;
+            --white: #FFFFFF;
+            --text: #2C3E50;
+            --text-light: #5D6D7E;
+            --success: #27AE60;
+            --accent-teal: #1ABC9C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        /* Elegant Noise Texture */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav.scrolled {
+            background: rgba(13, 27, 42, 0.97);
+            padding: 15px 60px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 24px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, var(--navy-light) 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 70%;
+            height: 160%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold-dark) 50%, transparent 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.2s;
+        }
+
+        .hero-eyebrow span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .hero-eyebrow::before {
+            content: "";
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.2rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.35s;
+        }
+
+        .hero-credentials {
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.5s;
+        }
+
+        .hero-statement {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.9;
+            margin-bottom: 40px;
+            max-width: 550px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.65s;
+        }
+
+        .hero-highlights {
+            display: flex;
+            gap: 30px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.8s;
+        }
+
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .highlight-text {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .highlight-text strong {
+            display: block;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Hero Stats Panel */
+        .hero-stats-panel {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            position: relative;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.5s;
+        }
+
+        .hero-stats-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            margin-top: 8px;
+        }
+
+        .panel-footer {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .panel-footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
+        }
+
+        .panel-footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Base */
+        section {
+            padding: 100px 60px;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .section-header.centered {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Executive Summary */
+        .summary {
+            background: var(--white);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .summary-content p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+
+        .summary-content p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            float: left;
+            line-height: 0.8;
+            padding-right: 15px;
+            color: var(--navy);
+        }
+
+        .quick-facts {
+            background: var(--navy);
+            padding: 45px;
+            position: relative;
+        }
+
+        .quick-facts::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+        }
+
+        .quick-facts h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .fact-list {
+            list-style: none;
+        }
+
+        .fact-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+        }
+
+        .fact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .fact-list li::before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* What Sets Me Apart */
+        .differentiators {
+            background: var(--cream);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .diff-card {
+            background: var(--white);
+            padding: 45px 35px;
+            border: 1px solid rgba(0,0,0,0.06);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .diff-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+        }
+
+        .diff-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .diff-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .diff-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .diff-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Career Timeline */
+        .career {
+            background: var(--white);
+        }
+
+        .career-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .career-phase {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 50px;
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .career-phase:last-child {
+            border-bottom: none;
+        }
+
+        .career-phase::before {
+            content: "";
+            position: absolute;
+            left: 200px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, var(--gold) 0%, rgba(212, 175, 55, 0.2) 100%);
+        }
+
+        .phase-meta {
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            padding: 6px 14px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .phase-years {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .phase-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .phase-org {
+            font-size: 0.95rem;
+            color: var(--gold-dark);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .phase-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .phase-achievements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .achievement-tag {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* Signature Achievements */
+        .achievements {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            color: var(--white);
+        }
+
+        .achievements .section-label {
+            color: var(--gold);
+        }
+
+        .achievements .section-title {
+            color: var(--white);
+        }
+
+        .achievements .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .achievement-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .achievement-card::before {
+            content: attr(data-number);
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: rgba(212, 175, 55, 0.1);
+            line-height: 1;
+        }
+
+        .achievement-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .achievement-card p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .achievement-outcome {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--gold);
+        }
+
+        .achievement-outcome span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Teaching Philosophy */
+        .philosophy {
+            background: var(--cream);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .philosophy-visual {
+            position: relative;
+        }
+
+        .philosophy-quote {
+            background: var(--white);
+            padding: 50px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .philosophy-quote blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--navy);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .philosophy-pillars {
+            display: grid;
+            gap: 25px;
+        }
+
+        .pillar {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .pillar-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .pillar h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .pillar p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Student Impact */
+        .impact {
+            background: var(--white);
+        }
+
+        .impact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .testimonial {
+            padding: 35px;
+            background: var(--cream);
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: """;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial cite {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 35px 25px;
+            background: var(--navy);
+        }
+
+        .metric-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Education & Credentials */
+        .credentials {
+            background: var(--cream);
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-timeline {
+            position: relative;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 25px;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            min-width: 70px;
+        }
+
+        .edu-content h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .edu-content .institution {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .edu-content .gpa {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .affiliations-panel {
+            background: var(--white);
+            padding: 40px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .affiliations-panel h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 25px;
+        }
+
+        .affiliation-category {
+            margin-bottom: 30px;
+        }
+
+        .affiliation-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .affiliation-category h6 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .affiliation-list {
+            list-style: none;
+        }
+
+        .affiliation-list li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .affiliation-list li:last-child {
+            border-bottom: none;
+        }
+
+        .affiliation-list li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.5rem;
+            top: 12px;
+        }
+
+        /* Scholarship */
+        .scholarship {
+            background: var(--white);
+        }
+
+        .scholarship-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pub-card {
+            padding: 40px;
+            background: var(--cream);
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .pub-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+        }
+
+        .pub-type {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .pub-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .pub-card .venue {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .pub-card p {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .pub-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--gold-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .pub-card a:hover {
+            color: var(--navy);
+        }
+
+        /* Contact CTA */
+        .contact {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            text-align: center;
+            padding: 100px 60px;
+            position: relative;
+        }
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .contact-item a, .contact-item span {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .contact-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 45px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-cta:hover {
+            background: var(--gold-soft);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 50px 60px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav { padding: 15px 30px; }
+            .nav-links { display: none; }
+            section { padding: 70px 30px; }
+            .hero { padding: 100px 30px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+            .hero h1 { font-size: 3rem; }
+            .hero-stats-panel { margin-top: 0; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .career-phase { grid-template-columns: 1fr; gap: 20px; }
+            .career-phase::before { display: none; }
+            .phase-meta { text-align: left; padding-right: 0; }
+            .achievements-grid { grid-template-columns: 1fr; }
+            .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .impact-metrics { grid-template-columns: repeat(2, 1fr); }
+            .credentials-grid { grid-template-columns: 1fr; }
+            .scholarship-grid { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; gap: 25px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-highlights { flex-direction: column; gap: 15px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2rem; }
+            .impact-metrics { grid-template-columns: 1fr; }
+            .contact h2 { font-size: 2rem; }
+        }
+
+        /* Print */
+        @media print {
+            .nav, .contact { display: none; }
+            body { background: white; }
+            section { padding: 40px 20px; page-break-inside: avoid; }
+            .hero { min-height: auto; padding: 50px 20px; background: white; color: var(--navy); }
+            .hero h1 { color: var(--navy); font-size: 2.5rem; }
+            .hero-credentials, .hero-statement { color: var(--text); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">DR. DIANA GALVEZ</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#credentials">Credentials</a>
+        </div>
+        <a href="#contact" class="nav-cta">Get In Touch</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span>Nursing Education Leader</span>
+                </div>
+                <h1>Diana C. Galvez</h1>
+                <p class="hero-credentials">DNP · MSN · BSN · RN</p>
+                <p class="hero-statement">I build nursing programs that produce exceptional graduates. From curriculum architecture to faculty development, I create the systems that transform good programs into outstanding ones.</p>
+                <div class="hero-highlights">
+                    <div class="highlight">
+                        <div class="highlight-icon">🏛️</div>
+                        <div class="highlight-text">
+                            <strong>Current Role</strong>
+                            Clinical Assistant Professor & Level Coordinator
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-icon">📍</div>
+                        <div class="highlight-text">
+                            <strong>Institution</strong>
+                            UMass Boston ABSN Program
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-stats-panel">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">14+</div>
+                        <div class="stat-label">Years in Nursing</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Institutions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Courses Created</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4.0</div>
+                        <div class="stat-label">DNP GPA</div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p>Published Researcher | International Presenter</p>
+                    <a href="https://www.sigmarepository.org/dissertations/693" target="_blank">View Dissertation →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="summary" id="about">
+        <div class="summary-grid">
+            <div class="summary-content">
+                <div class="section-header">
+                    <p class="section-label">Executive Summary</p>
+                    <h2 class="section-title">Building Programs That Produce Excellence</h2>
+                </div>
+                <p>Dr. Diana C. Galvez is a nursing education leader whose career spans clinical practice, academic instruction, curriculum development, and program leadership. Beginning as a home health nurse in 2011 and advancing through acute care and charge nurse roles, she built a strong clinical foundation before transitioning fully into academia.</p>
+                <p>Today, she serves as Clinical Assistant Professor and Level 1 Coordinator at the University of Massachusetts Boston's Accelerated BSN program, where she oversees curriculum implementation, mentors faculty, coordinates clinical placements, and ensures programmatic excellence across multiple courses and dozens of instructors.</p>
+                <p>Her approach combines rigorous academic preparation—a Doctor of Nursing Practice with a 4.0 GPA and published research—with practical experience building courses from the ground up, leading curriculum transitions, and developing faculty. She brings both the scholarship to design evidence-based solutions and the operational expertise to implement them.</p>
+            </div>
+            
+            <div class="quick-facts">
+                <h4>At a Glance</h4>
+                <ul class="fact-list">
+                    <li>Created 6 nursing courses from concept to implementation</li>
+                    <li>Coordinated Level 1 across 4-6 faculty and 20+ instructors</li>
+                    <li>Led transition from concept-based to competency-based curriculum</li>
+                    <li>Published dissertation on simulation-based learning</li>
+                    <li>Presented research at international conference</li>
+                    <li>Active board member in 3 Sigma chapters</li>
+                    <li>Multilingual: English, Spanish, Portuguese</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Sets Me Apart -->
+    <section class="differentiators">
+        <div class="section-header centered">
+            <p class="section-label">Distinctive Value</p>
+            <h2 class="section-title">What Sets Me Apart</h2>
+            <p class="section-subtitle">The combination of skills, experience, and perspective that I bring to every role.</p>
+        </div>
+        
+        <div class="diff-grid">
+            <div class="diff-card">
+                <div class="diff-icon">🔧</div>
+                <h4>Builder, Not Just Instructor</h4>
+                <p>I don't just teach existing courses—I create them. I've built complete courses from scratch, including all content, assessments, simulations, and faculty guides. When programs need new curricula developed, I deliver.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-icon">🎯</div>
+                <h4>Systems Thinker</h4>
+                <p>I see how didactic, lab, simulation, and clinical components must work together. My curriculum designs ensure students build competencies through intentionally sequenced experiences—not disconnected activities.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-icon">📊</div>
+                <h4>Data-Driven Improver</h4>
+                <p>I use ATI results, course evaluations, and performance analytics to identify what's working and what isn't. Every semester, I refine courses based on evidence—not assumptions.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-icon">👥</div>
+                <h4>Faculty Developer</h4>
+                <p>I mentor and coordinate teams of instructors. From orientation to ongoing support, I help faculty implement curricula consistently while growing their own teaching capabilities.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-icon">🔄</div>
+                <h4>Change Leader</h4>
+                <p>I've led major curriculum transitions, including concept-based to competency-based redesigns. I know how to navigate faculty concerns, maintain quality during transitions, and document for accreditation.</p>
+            </div>
+            <div class="diff-card">
+                <div class="diff-icon">💡</div>
+                <h4>Technology Integrator</h4>
+                <p>I leverage educational technology strategically—Canvas, ATI, JoVE, H5P, ECHO360, SimCapture—to create engaging learning experiences that meet modern learners where they are.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Journey -->
+    <section class="career" id="experience">
+        <div class="section-header centered">
+            <p class="section-label">Professional Journey</p>
+            <h2 class="section-title">Career Progression</h2>
+            <p class="section-subtitle">From bedside nurse to academic leader—each role building toward the next.</p>
+        </div>
+        
+        <div class="career-container">
+            <div class="career-phase">
+                <div class="phase-meta">
+                    <span class="phase-badge">Current</span>
+                    <div class="phase-years">2023–Present</div>
+                </div>
+                <div class="phase-content">
+                    <h4>Clinical Assistant Professor & Level 1 Coordinator</h4>
+                    <p class="phase-org">University of Massachusetts Boston — ABSN Program</p>
+                    <p>Leading all Level 1 operations including curriculum implementation, faculty coordination, clinical placement oversight, and student success initiatives. Teaching two course sections while mentoring 4-6 didactic faculty and 20+ clinical/lab instructors. Spearheading transition to competency-based curriculum with full documentation for accreditation.</p>
+                    <div class="phase-achievements">
+                        <span class="achievement-tag">Level Coordinator</span>
+                        <span class="achievement-tag">Curriculum Transition Lead</span>
+                        <span class="achievement-tag">Faculty Mentor</span>
+                        <span class="achievement-tag">6 Courses Created</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="career-phase">
+                <div class="phase-meta">
+                    <span class="phase-badge">Previous</span>
+                    <div class="phase-years">2016–2023</div>
+                </div>
+                <div class="phase-content">
+                    <h4>Adjunct Faculty & Clinical Instructor</h4>
+                    <p class="phase-org">Multiple Institutions: UMass Boston, Simmons, Bunker Hill, Labouré, Quincy College</p>
+                    <p>Built extensive teaching experience across BSN, ADN, and CNA programs. Served as clinical instructor, lab instructor, and simulation educator. Co-created CNA curriculum. Developed expertise in high-fidelity simulation, virtual reality platforms, and evidence-based teaching strategies.</p>
+                    <div class="phase-achievements">
+                        <span class="achievement-tag">8 Institutions</span>
+                        <span class="achievement-tag">CNA Curriculum Developer</span>
+                        <span class="achievement-tag">Simulation Educator</span>
+                        <span class="achievement-tag">Clinical Instructor</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="career-phase">
+                <div class="phase-meta">
+                    <span class="phase-badge">Foundation</span>
+                    <div class="phase-years">2011–2017</div>
+                </div>
+                <div class="phase-content">
+                    <h4>Staff Nurse & Charge Nurse</h4>
+                    <p class="phase-org">South Shore Hospital & New England Sinai Hospital</p>
+                    <p>Built clinical expertise in medical-surgical and telemetry nursing. Promoted to Charge Nurse within 3 months at first position. Managed 22-33 bed units, coordinated patient assignments, precepted new hires and nursing students. Participated in Shared Governance, Epic implementation, and Education committees.</p>
+                    <div class="phase-achievements">
+                        <span class="achievement-tag">Charge Nurse</span>
+                        <span class="achievement-tag">Preceptor</span>
+                        <span class="achievement-tag">Epic Superuser</span>
+                        <span class="achievement-tag">Committee Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Achievements -->
+    <section class="achievements" id="achievements">
+        <div class="section-header centered">
+            <p class="section-label">Signature Accomplishments</p>
+            <h2 class="section-title">Results That Matter</h2>
+            <p class="section-subtitle">Concrete achievements that demonstrate my ability to build, lead, and transform.</p>
+        </div>
+        
+        <div class="achievements-grid">
+            <div class="achievement-card" data-number="01">
+                <h4>Complete Course Creation</h4>
+                <p>Built NURSNG 273 (Health Assessment) from minimal existing content to a comprehensive, multi-modal course with video lectures, ATI simulations, interactive assessments, longitudinal case studies, and competency-aligned rubrics.</p>
+                <div class="achievement-outcome">
+                    <span>Students consistently cite strong theory-practice connections in evaluations</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-number="02">
+                <h4>Curriculum Transition Leadership</h4>
+                <p>Led Level 1 transition from concept-based to competency-based curriculum while maintaining program quality. Created curriculum maps, competency rubrics, and documentation systems that demonstrate AACN Essentials alignment.</p>
+                <div class="achievement-outcome">
+                    <span>Full accreditation documentation completed and implemented</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-number="03">
+                <h4>14-Week Workshop Development</h4>
+                <p>Created comprehensive Clinical Judgment Workshop from scratch—including case studies, simulations, reflective exercises, and peer collaboration activities. Aligned with concept-based curriculum to build clinical reasoning systematically.</p>
+                <div class="achievement-outcome">
+                    <span>Adopted as model for faculty development across program levels</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-number="04">
+                <h4>CNA Program Curriculum</h4>
+                <p>Served as primary architect for complete CNA curriculum redesign at Labouré College. Created teaching strategies, learning activities, and assessment tools that met accreditation requirements and improved student outcomes.</p>
+                <div class="achievement-outcome">
+                    <span>Successfully implemented with positive faculty and student reception</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-number="05">
+                <h4>Faculty Coordination System</h4>
+                <p>Developed and implemented orientation, mentorship, and communication systems for Level 1 faculty. Created instructor packets, competency rubrics, and support structures that ensure consistent curriculum delivery.</p>
+                <div class="achievement-outcome">
+                    <span>20+ instructors oriented and supported each semester</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-number="06">
+                <h4>Published Research</h4>
+                <p>Completed and published DNP dissertation on reducing simulation-related anxiety in nursing students. Presented findings at international Sigma Theta Tau conference, contributing to evidence base for simulation education.</p>
+                <div class="achievement-outcome">
+                    <span>Available in Sigma Repository; accessed and downloaded multiple times</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Philosophy -->
+    <section class="philosophy" id="philosophy">
+        <div class="philosophy-grid">
+            <div class="philosophy-visual">
+                <div class="philosophy-quote">
+                    <blockquote>"I believe every student has the capacity to become an exceptional nurse. My role is to create the learning environment, experiences, and support systems that help them discover and develop that potential."</blockquote>
+                </div>
+            </div>
+            
+            <div>
+                <div class="section-header">
+                    <p class="section-label">Teaching Philosophy</p>
+                    <h2 class="section-title">How I Approach Education</h2>
+                </div>
+                
+                <div class="philosophy-pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon">🎯</div>
+                        <div>
+                            <h5>Competency-Focused</h5>
+                            <p>Every learning activity connects to specific competencies. Students always know what they're building toward and how each experience contributes to their development.</p>
+                        </div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🔗</div>
+                        <div>
+                            <h5>Integrated Learning</h5>
+                            <p>Classroom, lab, simulation, and clinical work together intentionally. Concepts introduced in lecture are practiced in lab and applied in clinical—not treated as separate activities.</p>
+                        </div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">📈</div>
+                        <div>
+                            <h5>Progressive Challenge</h5>
+                            <p>Students build competence through sequenced experiences that increase in complexity. Early success creates confidence for tackling harder problems.</p>
+                        </div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">💪</div>
+                        <div>
+                            <h5>High Standards, High Support</h5>
+                            <p>I expect excellence and provide the resources to achieve it. Struggling students get targeted intervention—not lowered expectations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Impact -->
+    <section class="impact">
+        <div class="impact-container">
+            <div class="section-header centered">
+                <p class="section-label">Student Voices</p>
+                <h2 class="section-title">Impact on Learners</h2>
+                <p class="section-subtitle">What students say about their learning experience.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"What I liked most about this course was the balance between theoretical knowledge and practical application. The course materials were well-organized, and the instructor made complex topics easier to understand."</p>
+                    <cite>— Student Course Evaluation</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"The way that she cares about her students and wants them to succeed, not every professor takes the time to actually help you. I had a great meeting with her and she was able to go over some exam question types with me."</p>
+                    <cite>— Student Course Evaluation</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"I tell my friends that I feel like if I email Dr. Galvez at 12 midnight, she will reply. She always made me feel very comfortable and she was very approachable."</p>
+                    <cite>— Student Course Evaluation</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"She really does prepare us to be the best student nurse we can be. She also prepares us for the NCLEX and the profession. She provides a lot of links and resources so the student isn't lost."</p>
+                    <cite>— Student Course Evaluation</cite>
+                </div>
+            </div>
+            
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">6</div>
+                    <div class="metric-label">Courses Created</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">500+</div>
+                    <div class="metric-label">Students Taught</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">20+</div>
+                    <div class="metric-label">Faculty Mentored</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Institutions Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Credentials -->
+    <section class="credentials" id="credentials">
+        <div class="credentials-grid">
+            <div class="education-timeline">
+                <div class="section-header">
+                    <p class="section-label">Education</p>
+                    <h2 class="section-title">Academic Preparation</h2>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-year">2023</div>
+                    <div class="edu-content">
+                        <h5>Doctor of Nursing Practice</h5>
+                        <p class="institution">Regis College — Nursing Education Focus</p>
+                        <span class="gpa">4.0 GPA</span>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-year">2021</div>
+                    <div class="edu-content">
+                        <h5>Master of Science in Nursing</h5>
+                        <p class="institution">Saint Joseph's College of Maine — Education</p>
+                        <span class="gpa">3.97 GPA</span>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-year">2011</div>
+                    <div class="edu-content">
+                        <h5>Bachelor of Science in Nursing</h5>
+                        <p class="institution">Nova Southeastern University</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-year">Ongoing</div>
+                    <div class="edu-content">
+                        <h5>Certified Nurse Educator (CNE)</h5>
+                        <p class="institution">In Progress</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="affiliations-panel">
+                <h4>Professional Affiliations & Service</h4>
+                
+                <div class="affiliation-category">
+                    <h6>Professional Organizations</h6>
+                    <ul class="affiliation-list">
+                        <li>American Nurses Association (ANA)</li>
+                        <li>American Association of Colleges of Nursing (AACN)</li>
+                        <li>Academy of Medical-Surgical Nurses (AMSN)</li>
+                        <li>Sigma Theta Tau International Honor Society</li>
+                    </ul>
+                </div>
+                
+                <div class="affiliation-category">
+                    <h6>Sigma Leadership Roles</h6>
+                    <ul class="affiliation-list">
+                        <li>Omicron Delta Chapter — Education Committee Board Member</li>
+                        <li>Theta Alpha Chapter — Board Member & Web Circle Reviewer</li>
+                        <li>Kappa Zeta at-Large Chapter — Committee Member</li>
+                    </ul>
+                </div>
+                
+                <div class="affiliation-category">
+                    <h6>Service Activities</h6>
+                    <ul class="affiliation-list">
+                        <li>2024 & 2025 Knowledge & Innovation Conference Planning</li>
+                        <li>Abstract Reviewer — Sigma SoCal Odyssey Conference</li>
+                        <li>Scholarship Essay Reviewer — Manning College of Nursing</li>
+                        <li>Developed first-ever Theta Alpha Chapter newsletter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarship -->
+    <section class="scholarship">
+        <div class="section-header centered">
+            <p class="section-label">Scholarship</p>
+            <h2 class="section-title">Research & Publications</h2>
+        </div>
+        
+        <div class="scholarship-grid">
+            <div class="pub-card">
+                <p class="pub-type">Doctoral Dissertation</p>
+                <h4>Assessing the Impact of a Pre-High-Fidelity Simulation Orientation on ADN Students' Simulation-Related Anxiousness</h4>
+                <p class="venue">Sigma Repository, Dissertations #693 | Published 2024</p>
+                <p>Quantitative quasi-experimental study demonstrating that structured pre-simulation orientation sessions significantly reduce student anxiety and improve learning outcomes in high-fidelity simulation environments.</p>
+                <a href="https://www.sigmarepository.org/dissertations/693" target="_blank">View Publication →</a>
+            </div>
+            
+            <div class="pub-card">
+                <p class="pub-type">Conference Presentation</p>
+                <h4>Pre-High-Fidelity Simulation Orientation Effects on Nursing Student Anxiety</h4>
+                <p class="venue">2024 Knowledge and Innovation Virtual Conference | Sigma Theta Tau International</p>
+                <p>Poster presentation sharing research findings with international nursing education community. Findings have implications for simulation curriculum design and student preparation strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in conversations about nursing education, curriculum development, and opportunities to build programs that make a difference.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <p class="label">Email</p>
+                    <a href="mailto:dianacgalvez@gmail.com">dianacgalvez@gmail.com</a>
+                </div>
+            </div>
+            <a href="mailto:dianacgalvez@gmail.com" class="contact-cta">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">DR. DIANA C. GALVEZ</div>
+        <p>DNP, MSN, BSN, RN</p>
+        <p>Nursing Education Leader</p>
+        <div class="footer-copyright">
+            <p>© 2025 Diana C. Galvez. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
